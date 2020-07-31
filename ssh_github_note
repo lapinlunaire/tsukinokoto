@@ -1,43 +1,45 @@
-#1 
-ssh-keygen -t rsa -b 4096 -C sansemail@pasdemail.com
+[1] 
+ssh-keygen -t rsa -b 4096 -C "EMAIL"
 
-#2
+[2] 
 eval "$(ssh-agent -s)"
 
-#3
+[3] 
 ssh-add ~/.ssh/id_rsa
 
-#4
+[4] 
 Copy your public SSH key  
 
 cat ~/.ssh/id_rsa.pub
 
-#5 edit ~/.ssh/config
-Host github.com-activehacker
+[5]  edit ~/.ssh/config
+Host github.com-username
 	HostName github.com
 	User git
 	IdentityFile ~/.ssh/id_rsa
 
-#6 test connection 
+[6]  test connection 
 
 ssh -T git@github.com
 
 add permanent host > yes
 
 
-#7 copy email anonyme depuis settings de github, le set avec 
+[7]  copy email anonyme depuis settings de github, le set avec 
   git config --global user.email "xxxxxx.noreply.github.com"
   git config --global user.name "xxxx"
 
 
-#8 git init
+[8]  git 
 
 git init
 git remote add origin git@github.com:xxxx/yyyyy.git
-
 git remote -v
-git add --all
+
+git add --all # git add filename #git add .
+
 git commit -am "Initial commit"
-git push -f origin master
+git push origin master #git push -f origin master
+
 
 
