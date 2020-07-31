@@ -1,4 +1,4 @@
-[1] 
+[1] Generate key
 ssh-keygen -t rsa -b 4096 -C "EMAIL"
 
 [2] 
@@ -7,30 +7,32 @@ eval "$(ssh-agent -s)"
 [3] 
 ssh-add ~/.ssh/id_rsa
 
-[4] 
-Copy your public SSH key  
+[4] Copy your public SSH key  
 
 cat ~/.ssh/id_rsa.pub
 
-[5]  edit ~/.ssh/config
+[5] Edit ~/.ssh/config
+
 Host github.com-username
 	HostName github.com
 	User git
 	IdentityFile ~/.ssh/id_rsa
 
-[6]  test connection 
+[6] Test connection 
 
 ssh -T git@github.com
 
 add permanent host > yes
 
 
-[7]  copy email anonyme depuis settings de github, le set avec 
+[7] Git config
+
+  Copy email anonyme depuis settings de github, le set avec 
   git config --global user.email "xxxxxx.noreply.github.com"
   git config --global user.name "xxxx"
 
 
-[8]  git 
+[8] Test git
 
 git init
 git remote add origin git@github.com:xxxx/yyyyy.git
